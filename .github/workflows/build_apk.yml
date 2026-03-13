@@ -67,7 +67,7 @@ jobs:
           # Install build-tools and platform-tools
           $HOME/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager \
             "platforms;android-33" \
-            "build-tools;34.0.0" \
+            "build-tools;33.0.2" \
             "platform-tools"
 
       - name: Build APK (debug)

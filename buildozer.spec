@@ -8,7 +8,7 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 
 version = 1.0.0
 
-requirements = python3,kivy==2.3.0,kivymd
+requirements = python3,kivy==2.3.0
 
 orientation = landscape
 
@@ -23,7 +23,7 @@ android.sdk = 33
 android.ndk_api = 21
 android.archs = arm64-v8a, armeabi-v7a
 android.accept_sdk_license = True
-android.build_tools_version = 34.0.0
+android.build_tools_version = 33.0.2
 
 android.allow_backup = True
 
