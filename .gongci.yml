@@ -1,0 +1,28 @@
+version: "2.0"
+
+stages:
+  - build
+
+build_apk:
+  stage: build
+  image: ubuntu:22.04
+  timeout: 90m
+  only:
+    - main
+    - master
+  script:
+    - apt-get update -q
+    - apt-get install -y git zip unzip wget python3 python3-pip
+        openjdk-17-jdk autoconf libtool pkg-config
+        zlib1g-dev libncurses5-dev cmake libffi-dev libssl-dev
+    - pip3 install --upgrade pip
+    - pip3 install buildozer cython
+    - export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    - buildozer android debug 2>&1 | tee build.log
+    - echo "=== Built APKs ==="
+    - ls -lh bin/*.apk
+  artifacts:
+    paths:
+      - bin/*.apk
+      - build.log
+    expire_in: 30 days
